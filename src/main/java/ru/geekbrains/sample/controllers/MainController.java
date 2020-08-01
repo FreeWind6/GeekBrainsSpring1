@@ -1,13 +1,11 @@
 package ru.geekbrains.sample.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RequestParam;
 import ru.geekbrains.sample.dto.Student;
 import ru.geekbrains.sample.repository.StudentsRepository;
 
@@ -20,6 +18,11 @@ public class MainController {
    }
 
    StudentsRepository studentsRepository;
+
+    @Autowired
+    public MainController(StudentsRepository studentsRepository) {
+        this.studentsRepository = studentsRepository;
+    }
 
     @GetMapping("/studentsList")
     public String getStudentList(Model model) {
@@ -41,9 +44,8 @@ public class MainController {
 
     @PostMapping("/students")
     public String sendForm(@ModelAttribute Student student) {
-        studentsRepository.init();
         studentsRepository.saveOrUpdateStudent(student);
         System.out.println(student);
-        return "studentList";
+        return "redirect:/studentsList/";
     }
 }

@@ -6,8 +6,7 @@
 </head>
 <body>
 <h1>Форма отправки данных</h1>
-<!--/*@thymesVar id="student" type="ru.geekbrains.sample"*/-->
-<form action="#" th:action="@{/students}" method="POST" th:object="${student}">
+<form th:action="@{/students}" method="POST">
     ID: <input type="text" name="id" class="form-control" placeholder="ID">
     <br>
     Name: <input type="text" name="name" class="form-control" placeholder="Имя">
