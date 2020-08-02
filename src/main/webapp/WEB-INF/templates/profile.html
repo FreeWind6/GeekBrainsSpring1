@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:c="">
+<head>
+    <meta charset="UTF-8">
+    <title>GeekBrains - GET</title>
+</head>
+<body>
+<h1>Список найденых студентов</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Имя</td>
+        <td>Балл</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${profiles}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.score}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
