@@ -1,10 +1,7 @@
 package ru.geekbrains.sample.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.geekbrains.sample.dao.BookService;
 import ru.geekbrains.sample.dao.CarService;
 import ru.geekbrains.sample.dto.BookDTO;
@@ -23,8 +20,8 @@ public class CarController {
     }
 
     @GetMapping
-    public void findName(CarDTO carDTO) {
-        carService.find(carDTO.getName());
+    public void findName(@RequestParam String name) {
+        carService.find(name);
     }
 
 }
