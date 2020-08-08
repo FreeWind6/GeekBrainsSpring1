@@ -4,5 +4,6 @@
     <persistence-unit name="spring-jpa-unit">
         <class>ru.geekbrains.sample.persistence.entity.Book</class>
         <class>ru.geekbrains.sample.persistence.entity.Student</class>
+        <class>ru.geekbrains.sample.persistence.entity.Car</class>
     </persistence-unit>
 </persistence>
