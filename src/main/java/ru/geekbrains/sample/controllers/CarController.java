@@ -1,6 +1,7 @@
 package ru.geekbrains.sample.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,11 @@ public class CarController {
     @PostMapping
     public void saveOne(CarDTO carDTO) {
         carService.save(carDTO);
+    }
+
+    @GetMapping
+    public void findName(CarDTO carDTO) {
+        carService.find(carDTO.getName());
     }
 
 }
