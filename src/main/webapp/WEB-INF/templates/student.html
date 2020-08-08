@@ -15,20 +15,5 @@
             <br>
             <button type="submit">Отправить</button>
         </form>
-
-        <table>
-            <thead>
-            <tr>
-                <td>Id</td>
-                <td>Имя</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="s : ${students}">
-                <td th:text="${s.id}"></td>
-                <td th:text="${s.name}"></td>
-            </tr>
-            </tbody>
-        </table>
     </body>
 </html>
