@@ -27,7 +27,7 @@
     <th>created</th>
     </thead>
     <tbody>
-    <tr th:each="book, iterator : ${books}">
+    <tr th:each="book, iterator : ${booksRev}">
                     <span th:if="${book.available}">
                         <td th:text="${iterator.index + 1}"/>
                         <td>
@@ -39,13 +39,9 @@
     </tr>
     </tbody>
 </table>
-<select>
-    <option th:text="'Не выбрано'" th:value="null"/>
-    <option th:each="month : ${T(ru.geekbrains.sample.enums.Month).values()}" th:value="${month.ordinal()}"
-            th:text="${month}">
-</select>
-<button onclick="window.location.href = '/supershop/indexRev';" type="button" class="btn btn-primary">Перевернуть
+<button onclick="window.location.href = '/supershop';" type="button" class="btn btn-primary">Перевернуть
 </button>
+
 <hr>
 <nav aria-label="...">
     <ul class="pagination">
