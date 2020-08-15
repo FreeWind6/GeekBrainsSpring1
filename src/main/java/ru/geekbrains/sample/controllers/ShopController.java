@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.geekbrains.sample.services.BookService;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.UUID;
 
 @Controller
@@ -20,6 +22,12 @@ public class ShopController {
     public String getIndexPage(Model model) {
         model.addAttribute("books", bookService.getAllBooks());
         return "index";
+    }
+
+    @GetMapping("/indexRev")
+    public String getIndexRevPage(Model model) {
+        model.addAttribute("booksRev", bookService.getReverseAllBooks());
+        return "indexRev";
     }
 
     @GetMapping("/books/{id}")
