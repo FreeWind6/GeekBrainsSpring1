@@ -1,15 +1,13 @@
 package ru.geekbrains.sample.controllers;
 
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import ru.geekbrains.sample.services.BookService;
+import ru.geekbrains.sample.services.SchoolService;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.UUID;
 
 @Controller
@@ -17,6 +15,7 @@ import java.util.UUID;
 public class ShopController {
 
     public final BookService bookService;
+    public final SchoolService schoolService;
 
     @GetMapping("/")
     public String getIndexPage(Model model) {
@@ -24,16 +23,16 @@ public class ShopController {
         return "index";
     }
 
-    @GetMapping("/indexRev")
-    public String getIndexRevPage(Model model) {
-        model.addAttribute("booksRev", bookService.getReverseAllBooks());
-        return "indexRev";
-    }
-
     @GetMapping("/books/{id}")
     public String getBookPage(@PathVariable String id, Model model) {
         model.addAttribute("book", bookService.getOne(UUID.fromString(id)));
         return "book";
     }
+
+    @GetMapping("/schools/{id}")
+    public void getSchools(@PathVariable String id) {
+        schoolService.getAllSchoolModels(UUID.fromString(id));
+    }
+
 
 }

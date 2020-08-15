@@ -5,9 +5,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import ru.geekbrains.sample.persistence.entities.Book;
+import ru.geekbrains.sample.persistence.entities.School;
 import ru.geekbrains.sample.persistence.repositories.BookRepository;
+import ru.geekbrains.sample.persistence.repositories.SchoolRepository;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,14 +18,11 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
+    private final SchoolRepository schoolRepository;
+
+
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
-    }
-
-    public List<Book> getReverseAllBooks() {
-        List<Book> all = bookRepository.findAll();
-        Collections.reverse(all);
-        return all;
     }
 
     public Book getOne(UUID id) {

@@ -1,13 +1,9 @@
-server:
-  servlet:
-    context-path: /supershop
-
 spring:
   datasource:
-    url : jdbc:postgresql://localhost:5432/postgres
+    url : jdbc:postgresql://localhost:5432/geekbrains
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: root
+    password: postgres
 
   thymeleaf:
     cache: false
