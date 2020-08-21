@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
 import java.util.Date;
 import java.util.UUID;
 
@@ -16,7 +15,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class Item {
 
     @Id
     public UUID id;
