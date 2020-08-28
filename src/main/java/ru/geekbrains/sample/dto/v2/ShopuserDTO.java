@@ -1,28 +1,23 @@
-package ru.geekbrains.sample.persistence.entities;
+package ru.geekbrains.sample.dto.v2;
 
-import lombok.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import ru.geekbrains.sample.persistence.enums.Role;
 
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.util.Date;
 
 @Data
-@Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class Shopuser extends AbstractPersistableEntity {
-
+public class ShopuserDTO {
     private String login;
-
     private String password;
-
     private String firstName;
-
     @Enumerated(EnumType.STRING)
     private Role role;
-
 }
